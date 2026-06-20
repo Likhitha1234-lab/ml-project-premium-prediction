@@ -86,7 +86,70 @@ The application helps insurance providers and customers understand how different
 
 ---
 
-## 🤖 Machine Learning Workflow
+## 🤖 Modeling Approach & Performance
+
+Instead of using a single model for all customers, the dataset was segmented based on age to improve prediction accuracy and better capture different risk patterns.
+
+### 👦 Young Customers (Age ≤ 25)
+
+For younger customers, **Genetic Risk** was found to be an important predictor of insurance costs.
+
+Models Evaluated:
+
+* Linear Regression
+* Ridge Regression
+
+Results:
+
+| Model             | Test R² Score |
+| ----------------- | ------------: |
+| Linear Regression |         0.989 |
+| Ridge Regression  |         0.989 |
+
+Key Findings:
+
+* Adding **Genetic Risk** significantly improved model performance.
+* Linear and Ridge Regression performed best due to the strong linear relationship between features and insurance costs in this age group.
+
+---
+
+### 👨 Adult Customers (Age > 25)
+
+For older customers, factors such as lifestyle, medical history, income, and insurance plan had a greater influence on premium costs.
+
+Models Evaluated:
+
+* Linear Regression
+* Ridge Regression
+* XGBoost Regressor
+
+Results:
+
+| Model             | Test R² Score |
+| ----------------- | ------------: |
+| Linear Regression |         0.925 |
+| Ridge Regression  |         0.925 |
+| XGBoost Regressor |         0.998 |
+
+Key Findings:
+
+* Genetic Risk did not provide meaningful improvement in this segment.
+* XGBoost captured complex non-linear relationships and delivered the highest prediction performance.
+
+---
+
+### 💡 Key Insight
+
+A segmented modeling strategy produced better results than using a single model for all customers.
+
+* Age ≤ 25 → Linear/Ridge Regression with Genetic Risk
+* Age > 25 → XGBoost without Genetic Risk
+
+This approach improved prediction accuracy while maintaining model interpretability for younger customers and leveraging advanced machine learning techniques for older customer segments.
+
+---
+
+## 🔄 Machine Learning Workflow
 
 1. Data Collection & Preprocessing
 2. Exploratory Data Analysis (EDA)
@@ -141,4 +204,3 @@ This solution enables faster and more consistent insurance premium estimation by
 **Likhitha N**
 
 Aspiring AI & Data Scientist | Machine Learning | Python | SQL | Streamlit
-
