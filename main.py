@@ -48,16 +48,28 @@ st.markdown("""
     font-weight: 700 !important;
 }
 
-/* Inputs */
+/* Number & Text Inputs */
 .stNumberInput input,
 .stTextInput input {
+    background-color: white !important;
     color: #0f172a !important;
     font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1 !important;
 }
 
-/* Selectbox */
-.stSelectbox div[data-baseweb="select"] {
-    color: #0f172a;
+/* Selectboxes */
+.stSelectbox div[data-baseweb="select"] > div {
+    background-color: white !important;
+    color: #0f172a !important;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* Dropdown menu */
+div[role="listbox"] {
+    background-color: white !important;
+    color: #0f172a !important;
 }
 
 /* Button */
